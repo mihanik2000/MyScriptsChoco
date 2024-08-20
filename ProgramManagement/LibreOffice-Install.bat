@@ -27,35 +27,7 @@ IF NOT %HasAdminRights%==1 (
     GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLLibreOffice="https://mirror.truenetwork.ru/tdf/libreoffice/stable/7.6.5/win/x86/LibreOffice_7.6.5_Win_x86.msi"
-
-set URLLibreOffice-x64="https://mirror.truenetwork.ru/tdf/libreoffice/stable/7.6.5/win/x86_64/LibreOffice_7.6.5_Win_x86-64.msi"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install LibreOffice...
-ECHO .
-
-    If exist "%SystemDrive%\Program Files (x86)" (
-        wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
-        Start /wait LibreOffice_x64.msi  /passive /norestart
-        rem wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
-        rem Start /wait LibreOffice_x64_helppack_ru.msi  /passive /norestart
-    ) else (
-        wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
-        Start /wait LibreOffice_x86.msi  /passive /norestart
-        rem wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
-        rem Start /wait LibreOffice_x86_helppack_ru.msi /passive /norestart
-    )
+choco install libreoffice-fresh -y
 
 :ENDSUB
 

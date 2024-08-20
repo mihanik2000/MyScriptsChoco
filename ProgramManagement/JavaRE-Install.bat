@@ -27,30 +27,7 @@ IF NOT %HasAdminRights%==1 (
 	GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLjre="http://repo.mihanik.net/Java/jre-8u241-windows-i586.exe"
-set URLjre-x64="http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install Java SE Runtime Environment...
-ECHO .
-
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\jre-x64.exe" %URLjre-x64%
-		Start /wait jre-x64.exe	 /s
-	) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\jre.exe" %URLjre%
-		Start /wait jre.exe	 /s
-	)
+choco install javaruntime -y
 
 :ENDSUB
 

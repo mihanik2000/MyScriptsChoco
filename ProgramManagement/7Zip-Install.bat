@@ -27,28 +27,7 @@ IF NOT %HasAdminRights%==1 (
 	GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set URL7Zip="https://www.7-zip.org/a/7z2401.msi"
-set URL7Zip-x64="https://www.7-zip.org/a/7z2401-x64.msi"
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install 7-Zip...
-ECHO .
- If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
-		start /wait 7z-x64.msi /passive /norestart
-	) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\7z.msi" %URL7Zip%
-		start /wait 7z.msi /passive /norestart
-	)
+choco install 7zip -y
 
 :ENDSUB
 

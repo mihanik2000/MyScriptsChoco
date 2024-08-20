@@ -27,22 +27,7 @@ IF NOT %HasAdminRights%==1 (
     GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install Adobe Acrobat Reader...
-ECHO .
-
-    wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
-    Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
+choco install adobereader -y
 
 :ENDSUB
 

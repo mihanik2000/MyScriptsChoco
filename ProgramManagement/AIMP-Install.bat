@@ -27,24 +27,7 @@ IF NOT %HasAdminRights%==1 (
     GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLaimp="https://www.aimp.ru/?do=download.file&id=4"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install AIMP...
-ECHO .
-
-	wget.exe --no-check-certificate -O "%MyFolder%\aimp.exe" %URLaimp%
-	Start /wait aimp.exe /AUTO /SILENT
+choco install aimp -y
 
 :ENDSUB
 

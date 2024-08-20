@@ -27,25 +27,7 @@ IF NOT %HasAdminRights%==1 (
 	GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLuncomsetup="https://unrealcommander.com/download/evolution/uncomsetup4.21beta18(build1645).exe"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install Unreal Commander...
-ECHO .
-
-	wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
-
-	start uncomsetup.exe /VERYSILENT /NORESTART /SP- woex
+choco install unreal-commander -y
 
 :ENDSUB
 

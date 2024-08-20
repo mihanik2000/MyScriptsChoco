@@ -12,6 +12,10 @@ REM Скрипт установки стандартного пакета программ с моего репозитория
 REM
 REM ****************************************
 
+REM Добавляем мой репозиторий choco
+
+choco source add --name=mihanikus --source=http://choco.mihanik.net/chocolatey
+
 REM Устанавливаем значение некоторых переменных
 
 REM Получаем имя папки, в которой расположен скрипт
@@ -62,7 +66,7 @@ REM Установим Wget
 CALL "%ScriptPath%\ProgramManagement\Wget-Install.bat"
 
 REM Установим 7Zip
-CALL "%ScriptPath%\ProgramManagement\7Zip-Install.bat"
+choco install 7zip -y
 CALL "%ScriptPath%\ProgramManagement\7Zip-associate.bat"
 
 REM Настроим возможность подключаться по RDP
@@ -75,43 +79,47 @@ REM Установим dotNetFx3.5
 CALL "%ScriptPath%\ProgramManagement\dotNetFx3.5-install.bat"
 
 REM Установим dotNetFx4.8
-CALL "%ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat"
+REM Не устанавливаем, т.к. это было установлено во время установки choco
+REM CALL "%ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat"
 
 REM Установим Duplicati 2
 CALL "%ScriptPath%\ProgramManagement\Duplicati-Install.bat"
 
 REM Установим LibreOffice
-CALL "%ScriptPath%\ProgramManagement\LibreOffice-Install.bat"
+choco install libreoffice-fresh -y
 
 REM Установим Java SE Runtime Environment
-CALL "%ScriptPath%\ProgramManagement\JavaRE-Install.bat"
+choco install javaruntime -y
 
 REM Установим Unreal Commander
-CALL "%ScriptPath%\ProgramManagement\UnrealCommander-Install.bat"
+choco install unreal-commander -y
 
 REM Установим Notepad++
-CALL "%ScriptPath%\ProgramManagement\Notepad++-Install.bat"
+choco install notepadplusplus -y
 
 REM Установим Google Chrome
-CALL "%ScriptPath%\ProgramManagement\GoogleChrome-Install.bat"
+choco install GoogleChrome -y
 
 REM Установим Firefox
-CALL "%ScriptPath%\ProgramManagement\Firefox-Install.bat"
+choco install Firefox -y
 
 REM Установим Thunderbird
-CALL "%ScriptPath%\ProgramManagement\Thunderbird-Install.bat"
+choco install thunderbird -y
 
 REM Установим LiteManager Pro
 CALL "%ScriptPath%\ProgramManagement\LiteManager-Install.bat"
 
 REM Установим Adobe Acrobat Reader
-CALL "%ScriptPath%\ProgramManagement\AcrobatReader-Install.bat"
+choco install adobereader -y
 
 REM Установим K-Lite_Codec_Pack
-CALL "%ScriptPath%\ProgramManagement\KLiteCodecPack-Install.bat"
+choco install k-litecodecpackmega -y
 
 REM Установим AIMP
-CALL "%ScriptPath%\ProgramManagement\AIMP-Install.bat"
+choco install aimp -y
+
+REM Установим yandex.browser
+choco install yandex.browser --source mihanikus -y
 
     ECHO .
     ECHO Всё!

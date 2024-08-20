@@ -29,30 +29,7 @@ IF NOT %HasAdminRights%==1 (
     GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLNotepad="http://download.notepad-plus-plus.org/repository/8.x/8.6.4/npp.8.6.4.Installer.exe"
-set URLNotepad-x64="http://download.notepad-plus-plus.org/repository/8.x/8.6.4/npp.8.6.4.Installer.x64.exe"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install Notepad++...
-ECHO .
-
-    If exist "%SystemDrive%\Program Files (x86)" (
-        wget.exe --no-check-certificate -O "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
-        Start /wait npp-x64.exe /S
-     ) else (
-        wget.exe --no-check-certificate -O "%MyFolder%\npp.exe" %URLNotepad%
-        Start /wait npp.exe /S
-    )
+choco install notepadplusplus -y
 
 :ENDSUB
 

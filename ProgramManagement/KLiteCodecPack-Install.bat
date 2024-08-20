@@ -27,24 +27,7 @@ IF NOT %HasAdminRights%==1 (
     GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLKLite="https://files2.codecguide.com/K-Lite_Codec_Pack_1635_Mega.exe"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install K-Lite_Codec_Pack...
-ECHO .
-
-    wget.exe --no-check-certificate -O "%MyFolder%\K-Lite_Codec_Pack_Mega.exe" %URLKLite%
-    Start /wait K-Lite_Codec_Pack_Mega.exe /silent
+choco install k-litecodecpackmega -y
 
 :ENDSUB
 

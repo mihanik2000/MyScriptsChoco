@@ -27,30 +27,7 @@ IF NOT %HasAdminRights%==1 (
     GOTO ENDSUB
 )
 
-REM Задаём значения переменных
-set MyFolder=%SystemRoot%\TMP\Mihanikus
-
-set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/123.0/win32/ru/Firefox Setup 123.0.msi"
-set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/123.0/win64/ru/Firefox Setup 123.0.msi"
-
-REM Переходим на системный диск
-%SystemDrive%
-
-REM Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%" >> nul
-cd "%MyFolder%"
-
-ECHO .
-ECHO Install Firefox...
-ECHO .
-
-    If exist "%SystemDrive%\Program Files (x86)" (
-        wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup-x64.msi" %URLFirefoxSetup-x64%
-         Start /wait FirefoxSetup-x64.msi /passive /norestart
-     ) else (
-        wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.msi" %URLFirefoxSetup%
-        Start /wait FirefoxSetup.msi  /passive /norestart
-    )
+choco install Firefox -y
 
 :ENDSUB
 
