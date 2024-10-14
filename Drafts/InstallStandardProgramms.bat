@@ -153,13 +153,13 @@ ECHO ...
 mkdir  "C:\Program Files\curl\"
 
 If exist "%programfiles(x86)%" (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.dll" "C:\Program Files\curl\libcurl-x64.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl.exe" "C:\Program Files\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl-ca-bundle.crt" "C:\Program Files\curl\curl-ca-bundle.crt"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/libcurl-x64.dll" "C:\Program Files\curl\libcurl-x64.dll"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/curl.exe" "C:\Program Files\curl\curl.exe"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/curl-ca-bundle.crt" "C:\Program Files\curl\curl-ca-bundle.crt"
  ) else (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.dll" "C:\Program Files\curl\libcurl.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl.exe" "C:\Program Files\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl-ca-bundle.crt" "C:\Program Files\curl\curl-ca-bundle.crt"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/libcurl.dll" "C:\Program Files\curl\libcurl.dll"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/curl.exe" "C:\Program Files\curl\curl.exe"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/curl-ca-bundle.crt" "C:\Program Files\curl\curl-ca-bundle.crt"
 )
 
 rem Добавляем утилиту curl.exe в исключения брандмауера Windows
@@ -172,10 +172,10 @@ ECHO ...
 ECHO Install 7-Zip
 ECHO ...
  If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "http://repo.mihanik.net/7-Zip/7z1900-x64.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "http://choco.mihanik.net/distr/repo/7-Zip/7z1900-x64.msi"
 		start /wait 7z1900-x64.msi /passive
 	) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "http://repo.mihanik.net/7-Zip/7z1900.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "http://choco.mihanik.net/distr/repo/7-Zip/7z1900.msi"
 		start /wait 7z1900.msi /passive
 	)
 
@@ -187,16 +187,16 @@ ECHO ...
 ECHO ...	
 ECHO Install dotNetFx4.8
 ECHO ...
-	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ndp48-x86-x64-allos-enu.exe" "http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
+	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ndp48-x86-x64-allos-enu.exe" "http://choco.mihanik.net/distr/repo/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 	Start /wait ndp48-x86-x64-allos-enu.exe /q /norestart
 	
 REM ECHO Install Duplicati
 ECHO ...
 	If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x64.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x64.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x64.msi" "http://choco.mihanik.net/distr/repo/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x64.msi"
 		Start /wait duplicati-2.0.5.103_canary_2020-02-18-x64.msi /passive
 	 ) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x86.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x86.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x86.msi" "http://choco.mihanik.net/distr/repo/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x86.msi"
  		Start /wait duplicati-2.0.5.103_canary_2020-02-18-x86.msi  /passive
  	)
 
@@ -216,10 +216,10 @@ ECHO ...
 ECHO Install Java SE Runtime Environment
 ECHO ...
 	If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\jre-8u201-windows-x64.exe" "http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\jre-8u201-windows-x64.exe" "http://choco.mihanik.net/distr/repo/Java/jre-8u241-windows-x64.exe"
 		Start /wait jre-8u201-windows-x64.exe  /s
 	) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\jre-8u201-windows-i586.exe" "http://repo.mihanik.net/Java/jre-8u241-windows-i586.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\jre-8u201-windows-i586.exe" "http://choco.mihanik.net/distr/repo/Java/jre-8u241-windows-i586.exe"
 		Start /wait jre-8u201-windows-i586.exe  /s
 	)
 
@@ -227,44 +227,44 @@ ECHO ...
 ECHO Install LibreOffice
 ECHO ...
 	If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x64.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x64.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x64.msi" "http://choco.mihanik.net/distr/repo/LibreOffice/LibreOffice_6.4.0_Win_x64.msi"
 		Start /wait LibreOffice_6.4.0_Win_x64.msi  /passive
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x64_helppack_ru.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x64_helppack_ru.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x64_helppack_ru.msi" "http://choco.mihanik.net/distr/repo/LibreOffice/LibreOffice_6.4.0_Win_x64_helppack_ru.msi"
 		Start /wait LibreOffice_6.4.0_Win_x64_helppack_ru.msi  /passive
 
 	) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x86.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x86.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x86.msi" "http://choco.mihanik.net/distr/repo/LibreOffice/LibreOffice_6.4.0_Win_x86.msi"
 		Start /wait LibreOffice_6.4.0_Win_x86.msi  /passive
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x86_helppack_ru.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x86_helppack_ru.msi"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x86_helppack_ru.msi" "http://choco.mihanik.net/distr/repo/LibreOffice/LibreOffice_6.4.0_Win_x86_helppack_ru.msi"
 		Start /wait LibreOffice_6.4.0_Win_x86_helppack_ru.msi  /passive
 	)
 
 ECHO ...
 ECHO Install Unreal Commander
 ECHO ...
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\uncomsetup3.57.exe" "http://repo.mihanik.net/UnrealCommander/uncomsetup3.57.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\uncomsetup3.57.exe" "http://choco.mihanik.net/distr/repo/UnrealCommander/uncomsetup3.57.exe"
 		start uncomsetup3.57.exe /SILENT
 
 ECHO ...
 ECHO Install Google Chrome
 ECHO ...
-	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ChromeSetup.exe" "http://repo.mihanik.net/ChromeSetup.exe"
+	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ChromeSetup.exe" "http://choco.mihanik.net/distr/repo/ChromeSetup.exe"
 	start /wait ChromeSetup.exe /silent /install
 
 ECHO ...
 ECHO Install Skype
 ECHO ...
-	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Skype.exe" "http://repo.mihanik.net/Skype.exe"
+	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Skype.exe" "http://choco.mihanik.net/distr/repo/Skype.exe"
 	start /wait Skype.exe  /silent
 
 ECHO ...
 ECHO Install Notepad++
 ECHO ...
 	If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\npp.7.8.4.Installer.x64.exe" "http://repo.mihanik.net/Notepad/npp.7.8.4.Installer.x64.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\npp.7.8.4.Installer.x64.exe" "http://choco.mihanik.net/distr/repo/Notepad/npp.7.8.4.Installer.x64.exe"
 		 Start /wait npp.7.8.4.Installer.x64.exe  /S
 	 ) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\npp.7.8.4.Installer.exe" "http://repo.mihanik.net/Notepad/npp.7.8.4.Installer.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\npp.7.8.4.Installer.exe" "http://choco.mihanik.net/distr/repo/Notepad/npp.7.8.4.Installer.exe"
  		Start /wait npp.7.8.4.Installer.exe  /S
  	)
 
@@ -272,10 +272,10 @@ ECHO ...
 ECHO Install Thunderbird
 ECHO ...
 	If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ThunderbirdSetup68.5.0-x64.exe" "http://repo.mihanik.net/MozillaTB/ThunderbirdSetup68.5.0-x64.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ThunderbirdSetup68.5.0-x64.exe" "http://choco.mihanik.net/distr/repo/MozillaTB/ThunderbirdSetup68.5.0-x64.exe"
 		 Start /wait ThunderbirdSetup68.5.0-x64.exe -ms
 	 ) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ThunderbirdSetup68.5.0.exe" "http://repo.mihanik.net/MozillaTB/ThunderbirdSetup68.5.0.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ThunderbirdSetup68.5.0.exe" "http://choco.mihanik.net/distr/repo/MozillaTB/ThunderbirdSetup68.5.0.exe"
  		Start /wait ThunderbirdSetup68.5.0.exe -ms
  	)
 
@@ -283,10 +283,10 @@ ECHO ...
 ECHO Install FirefoxSetup
 ECHO ...
 	If exist "%programfiles(x86)%" (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\FirefoxSetup.x64.exe" "http://repo.mihanik.net/Firefox/FirefoxSetup.x64.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\FirefoxSetup.x64.exe" "http://choco.mihanik.net/distr/repo/Firefox/FirefoxSetup.x64.exe"
 		 Start /wait FirefoxSetup.x64.exe /SILENT
 	 ) else (
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\FirefoxSetup.exe" "http://repo.mihanik.net/Firefox/FirefoxSetup.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\FirefoxSetup.exe" "http://choco.mihanik.net/distr/repo/Firefox/FirefoxSetup.exe"
  		Start /wait FirefoxSetup.exe /SILENT
  	)
 
@@ -294,14 +294,14 @@ ECHO ...
 ECHO ...
 ECHO Install LiteManager Pro
 ECHO ...
-	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
+	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LiteManagerPro-Server.msi" "http://choco.mihanik.net/distr/repo/LiteManager/LiteManagerPro-Server.msi"
  	Start /wait LiteManagerPro-Server.msi /passive	
 	sc start ROMService
 
 ECHO ...
 ECHO Install Adobe Acrobat Reader
 ECHO ...
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\AcroRdrDC1900820071_ru_RU_win.exe" "http://choco.mihanik.net/distr/repo/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
 		Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
 
 ECHO ...
@@ -312,15 +312,15 @@ rem Windows 7?
 rem ver | find "6.1."
 
 rem If %errorlevel%==0  (
-rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\WinXP-7-Chrome-install_flash_player_ppapi.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Chrome-install_flash_player_ppapi.exe"
-rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\WinXP-7-Explorer-install_flash_player_ax.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Explorer-install_flash_player_ax.exe"
-rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\WinXP-7-Firefox-install_flash_player.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Firefox-install_flash_player.exe"
+rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\WinXP-7-Chrome-install_flash_player_ppapi.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/WinXP-7-Chrome-install_flash_player_ppapi.exe"
+rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\WinXP-7-Explorer-install_flash_player_ax.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/WinXP-7-Explorer-install_flash_player_ax.exe"
+rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\WinXP-7-Firefox-install_flash_player.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/WinXP-7-Firefox-install_flash_player.exe"
 rem 		Start /wait WinXP-7-Chrome-install_flash_player_ppapi.exe /VERYSILENT
 rem 		Start /wait WinXP-7-Explorer-install_flash_player_ax.exe /VERYSILENT
 rem 		Start /wait WinXP-7-Firefox-install_flash_player.exe /VERYSILENT
 rem  ) else (
-rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Win8-10-Chrome-install_flash_player_ppapi.exe" "http://repo.mihanik.net/Adobe_Flash_Player/Win8-10-Chrome-install_flash_player_ppapi.exe"
-rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Win8-10-Firefox-install_flash_player.exe" "http://repo.mihanik.net/Adobe_Flash_Player/Win8-10-Firefox-install_flash_player.exe"
+rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Win8-10-Chrome-install_flash_player_ppapi.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/Win8-10-Chrome-install_flash_player_ppapi.exe"
+rem 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Win8-10-Firefox-install_flash_player.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/Win8-10-Firefox-install_flash_player.exe"
 rem 		Start /wait Win8-10-Chrome-install_flash_player_ppapi.exe /VERYSILENT
 rem 		Start /wait Win8-10-Firefox-install_flash_player.exe /VERYSILENT
 rem )
@@ -328,19 +328,19 @@ rem )
 ECHO ...
 ECHO Install K-Lite_Codec_Pack
 ECHO ...
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\K-Lite_Codec_Pack_1425_Mega.exe" "http://repo.mihanik.net/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\K-Lite_Codec_Pack_1425_Mega.exe" "http://choco.mihanik.net/distr/repo/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
 		Start /wait K-Lite_Codec_Pack_1425_Mega.exe /silent
 
 ECHO ...
 ECHO Install AIMP
 ECHO ...
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\aimp_4.60.2177.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\aimp_4.60.2177.exe" "http://choco.mihanik.net/distr/repo/Aimp/aimp_4.60.2177.exe"
 		Start /wait aimp_4.60.2177.exe /AUTO /SILENT
 
 ECHO ...
 ECHO Install Bullzip PDF Printer
 ECHO ...
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe" "http://repo.mihanik.net/bullzip/Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe" "http://choco.mihanik.net/distr/repo/bullzip/Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe"
 		Start /wait Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe
 
 REM Включим защитника Windows

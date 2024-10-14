@@ -29,7 +29,7 @@ IF NOT %HasAdminRights%==1 (
 
 REM Задаём значения переменных
 set URLndp48="https://go.microsoft.com/fwlink/?linkid=2088631"
-REM set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
+REM set URLndp48="http://choco.mihanik.net/distr/repo/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
 REM Переходим на системный диск

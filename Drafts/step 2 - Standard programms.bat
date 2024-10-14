@@ -35,14 +35,14 @@ set MyUserAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (K
 set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
 set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
 
-set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
+set URLndp48="http://choco.mihanik.net/distr/repo/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 rem set URLndp48="https://go.microsoft.com/fwlink/?linkid=2088631"
 
 set URLduplicati="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x86.msi"
 set URLduplicati-x64="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x64.msi"
 
-set URLjre="http://repo.mihanik.net/Java/jre-8u241-windows-i586.exe"
-set URLjre-x64="http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
+set URLjre="http://choco.mihanik.net/distr/repo/Java/jre-8u241-windows-i586.exe"
+set URLjre-x64="http://choco.mihanik.net/distr/repo/Java/jre-8u241-windows-x64.exe"
 
 set URLLibreOffice="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.0.1/win/x86/LibreOffice_7.0.1_Win_x86.msi"
 set URLLibreOffice-helppack="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.0.1/win/x86/LibreOffice_7.0.1_Win_x86_helppack_ru.msi"
@@ -157,16 +157,16 @@ ECHO .
 mkdir  "%ProgramFiles%\curl\"
 
 If exist "%SystemDrive%\Program Files (x86)" (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.dll" "%ProgramFiles%\curl\libcurl-x64.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl.exe" "%ProgramFiles%\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.def" "%ProgramFiles%\curl\libcurl-x64.def"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/libcurl-x64.dll" "%ProgramFiles%\curl\libcurl-x64.dll"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/curl.exe" "%ProgramFiles%\curl\curl.exe"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win64/libcurl-x64.def" "%ProgramFiles%\curl\libcurl-x64.def"
 
  ) else (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.dll" "%ProgramFiles%\curl\libcurl.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl.exe" "%ProgramFiles%\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.def" "%ProgramFiles%\curl\libcurl.def"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/libcurl.dll" "%ProgramFiles%\curl\libcurl.dll"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/curl.exe" "%ProgramFiles%\curl\curl.exe"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
+	certutil -urlcache -split -f "http://choco.mihanik.net/distr/repo/curl/win32/libcurl.def" "%ProgramFiles%\curl\libcurl.def"
 )
 
 rem Установим скачанный сертификат для всех пользователей
@@ -322,13 +322,13 @@ ECHO Install FirefoxSetup...
 
 ECHO .
 ECHO Install LiteManager Pro...
-	wget.exe --no-check-certificate -O "%MyFolder%\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
+	wget.exe --no-check-certificate -O "%MyFolder%\LiteManagerPro-Server.msi" "http://choco.mihanik.net/distr/repo/LiteManager/LiteManagerPro-Server.msi"
  	Start /wait LiteManagerPro-Server.msi /passive /norestart	
 	sc start ROMService
 
 ECHO .
 ECHO Install Adobe Acrobat Reader...
-		wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
+		wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://choco.mihanik.net/distr/repo/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
 		Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
 
 REM ECHO ...
@@ -339,15 +339,15 @@ rem Windows 7?
 rem ver | find "6.1."
 
 rem If %errorlevel%==0  (
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Chrome-install_flash_player_ppapi.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Chrome-install_flash_player_ppapi.exe"
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Explorer-install_flash_player_ax.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Explorer-install_flash_player_ax.exe"
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Firefox-install_flash_player.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Firefox-install_flash_player.exe"
+rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Chrome-install_flash_player_ppapi.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/WinXP-7-Chrome-install_flash_player_ppapi.exe"
+rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Explorer-install_flash_player_ax.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/WinXP-7-Explorer-install_flash_player_ax.exe"
+rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Firefox-install_flash_player.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/WinXP-7-Firefox-install_flash_player.exe"
 rem 		Start /wait WinXP-7-Chrome-install_flash_player_ppapi.exe /VERYSILENT
 rem 		Start /wait WinXP-7-Explorer-install_flash_player_ax.exe /VERYSILENT
 rem 		Start /wait WinXP-7-Firefox-install_flash_player.exe /VERYSILENT
 rem  ) else (
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Win8-10-Chrome-install_flash_player_ppapi.exe" "http://repo.mihanik.net/Adobe_Flash_Player/Win8-10-Chrome-install_flash_player_ppapi.exe"
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Win8-10-Firefox-install_flash_player.exe" "http://repo.mihanik.net/Adobe_Flash_Player/Win8-10-Firefox-install_flash_player.exe"
+rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Win8-10-Chrome-install_flash_player_ppapi.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/Win8-10-Chrome-install_flash_player_ppapi.exe"
+rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Win8-10-Firefox-install_flash_player.exe" "http://choco.mihanik.net/distr/repo/Adobe_Flash_Player/Win8-10-Firefox-install_flash_player.exe"
 rem 		Start /wait Win8-10-Chrome-install_flash_player_ppapi.exe /VERYSILENT
 rem 		Start /wait Win8-10-Firefox-install_flash_player.exe /VERYSILENT
 rem )

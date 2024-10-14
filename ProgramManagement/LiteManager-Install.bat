@@ -41,7 +41,7 @@ ECHO .
 ECHO Install LiteManager Pro...
 ECHO .
 
-    wget.exe --no-check-certificate -O "%MyFolder%\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
+    wget.exe --no-check-certificate -O "%MyFolder%\LiteManagerPro-Server.msi" "http://choco.mihanik.net/distr/repo/LiteManager/LiteManagerPro-Server.msi"
     Start /wait LiteManagerPro-Server.msi /passive /norestart
     sc start ROMService
 
