@@ -60,10 +60,12 @@ netsh firewall set portopening tcp 8200 Duplicati enable
 
 REM Установим и запустим службу Duplicati
 "%ProgramFiles%\Duplicati 2\Duplicati.WindowsService.exe" install
-sc start Duplicati
 
 REM Удалим лишние ярлыки
 del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicati 2.lnk"
+
+sc stop Duplicati
+sc config Duplicati start= disabled
 
 :ENDSUB
 

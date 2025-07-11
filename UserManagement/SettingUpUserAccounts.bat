@@ -28,8 +28,14 @@ IF NOT %HasAdminRights%==1 (
 REM активируем встроенного Админа
 net user Администратор "AdminPass" /active:yes /expires:never
 
+REM Срок действия пароля пользователя user не ограничен
+wmic UserAccount where Name="Администратор" set PasswordExpires=False
+
 REM Создадим пользователя user с паролем 321
 net user user "321" /add /expires:never
+
+REM Срок действия пароля пользователя user не ограничен
+wmic UserAccount where Name="user" set PasswordExpires=False
 
 :ENDSUB
 

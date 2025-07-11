@@ -57,6 +57,8 @@ rem Добавляем утилиту wget.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="wget"
 netsh advfirewall firewall add rule name="wget" dir=in action=allow program="%ProgramFiles%\Wget\wget.exe"
 
+choco install Wget -y
+
 echo .
 echo Установка Wget закончена
 echo .
