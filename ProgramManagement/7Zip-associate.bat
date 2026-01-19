@@ -1,19 +1,23 @@
 @echo off
-REM ****************************************
-REM
-REM Written by Michael Medvedev aka mihanik.
-REM
-REM https://mihanik.net
-REM
-REM        Require administrator rights: YES
-REM Antivirus software must be disabled: Not necessary
-REM                        Dependencies: You must first run Curl-Install.bat and Wget-Install.bat
-REM
-REM Install 7-Zip
-REM
-REM ****************************************
+:: ****************************************
+::
+:: Автор скрипта Михаил Медведев aka mihanik
+::
+:: https://mihanik.net
+::
+::        Требуется наличие прав администратора: ДА
+:: Антивирусная программа должна быть отключена: желательно, но не обязательно
+::                        Зависимости: You must first run Curl-Install.bat and Wget-Install.bat
+::
+:: Install 7-Zip
+::
+:: ****************************************
 
-rem Проверяем наличие у пользователя админских прав...
+:: **************************************************
+:: Проверяем наличие у пользователя админских прав.
+:: Если таковых прав нет, завершаем работу скрипта...
+:: **************************************************
+
 SET HasAdminRights=0
 
 FOR /F %%i IN ('WHOAMI /PRIV /NH') DO (
@@ -21,9 +25,9 @@ FOR /F %%i IN ('WHOAMI /PRIV /NH') DO (
 )
 
 IF NOT %HasAdminRights%==1 (
-	ECHO .
-	ECHO You need administrator rights to run!
-	ECHO .
+	echo.
+	echo You need administrator rights to run!
+	echo.
 	GOTO ENDSUB
 )
 
@@ -32,9 +36,9 @@ exit /b
 
 :ENDSUB
 
-echo .
+echo.
 echo Done!
-echo .
+echo.
 
 timeout 3 >> nul
 
