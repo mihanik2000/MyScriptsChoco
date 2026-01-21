@@ -83,7 +83,7 @@ REM Не устанавливаем, т.к. это было установлено во время установки choco
 REM CALL "%ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat"
 
 REM Установим Duplicati 2
-CALL "%ScriptPath%\ProgramManagement\Duplicati-Install.bat"
+REM CALL "%ScriptPath%\ProgramManagement\Duplicati-Install.bat"
 
 REM Установим LibreOffice
 choco install libreoffice-fresh -y
